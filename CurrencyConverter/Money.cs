@@ -11,15 +11,16 @@ namespace CurrencyConverter
     {
         //StreamReader sr = new StreamReader(@"..\..\Currency.txt");
         //set first value = symbol and second value = rate
-        
-        
+        //double BTC = 0.00115368;
+        //double JPY = 113.622;
+        //double EUR = 0.937635;
+        //double USD = 1;
+        int rate;
+        string symbol;
 
-     
-        
+
+
+
     }
 }
 
-//double BTC = 0.00115368;
-//double JPY = 113.622;
-//double EUR = 0.937635;
-//double USD = 1;

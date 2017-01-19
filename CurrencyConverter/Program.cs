@@ -8,39 +8,55 @@ namespace CurrencyConverter
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-        double currencyFromRate = 0;
-        double currencyToRate = 0;
 
-        Dictionary<string, double> currency = new Dictionary<string, double>();
-        currency.Add("USD", 1);
-        currency.Add("BTC", .00115368);
-        currency.Add("EUR", .937635);
-        currency.Add("JPY", 113.622);
+            double currencyFromRate = 0.0;
+            double currencyToRate = 0.0;
+            string currencyFrom = "nada";
+            string currencyTo = "nada";
+            float amount = 0.0f;
+
+            Dictionary<string, double> currency = new Dictionary<string, double>();
+            currency.Add("USD", 1);
+            currency.Add("BTC", .00115368);
+            currency.Add("EUR", .937635);
+            currency.Add("JPY", 113.622);
 
             Console.WriteLine("Enter Amount That You Would Like Converted");
-            float amount = float.Parse(Console.ReadLine());
+            amount = float.Parse(Console.ReadLine());
             Console.WriteLine("Choose currency you are converting from: USD, JPY, EUR or BTC");
-            var currencyFrom = Console.ReadLine();
+            currencyFrom = Console.ReadLine();
 
             // if currencyFrom is in the currency list set currencyFromRate = rate
             // else give error
-            if (currency.ContainsKey(currencyFrom))
+
+            if (currency.TryGetValue(currencyFrom, out currencyFromRate))
             {
-                currencyFromRate = currency["currencyFrom"];
+                
+            }
+            else
+            {
+                Console.WriteLine("Try another symbol");
             }
 
             Console.WriteLine("Choose currency to convert to: USD, JPY, EUR or BTC");
-            var currencyTo = Console.ReadLine();
+            currencyTo = Console.ReadLine();
 
             // if currencyTo is in the list set currencyToRate = rate
             //else give error
-            if (currency.ContainsKey(currencyTo))
+
+            if (currency.TryGetValue(currencyTo, out currencyToRate))
             {
-                currencyToRate = currency["currencyTo"];
+
             }
-            double newAmount = amount / currencyFromRate * currencyToRate;
+            else
+            {
+                Console.WriteLine("Try another symbol");
+            }
+            
+            var newAmount = amount / currencyFromRate * currencyToRate;
             Console.WriteLine($"{amount} {currencyFrom} = {newAmount} {currencyTo}");
 
             Console.ReadKey();
