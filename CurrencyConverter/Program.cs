@@ -27,8 +27,8 @@ namespace CurrencyConverter
             Console.WriteLine("Enter Amount That You Would Like Converted");
             amount = float.Parse(Console.ReadLine());
             Console.WriteLine("Choose currency you are converting from: USD, JPY, EUR or BTC");
-            currencyFrom = Console.ReadLine();
-
+            currencyFrom = Console.ReadLine().ToUpper();
+            
             if (currency.TryGetValue(currencyFrom, out currencyFromRate))
             {
                 
@@ -39,7 +39,7 @@ namespace CurrencyConverter
             }
 
             Console.WriteLine("Choose currency to convert to: USD, JPY, EUR or BTC");
-            currencyTo = Console.ReadLine();
+            currencyTo = Console.ReadLine().ToUpper();
 
             if (currency.TryGetValue(currencyTo, out currencyToRate))
             {
