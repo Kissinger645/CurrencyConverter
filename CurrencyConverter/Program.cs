@@ -29,9 +29,6 @@ namespace CurrencyConverter
             Console.WriteLine("Choose currency you are converting from: USD, JPY, EUR or BTC");
             currencyFrom = Console.ReadLine();
 
-            // if currencyFrom is in the currency list set currencyFromRate = rate
-            // else give error
-
             if (currency.TryGetValue(currencyFrom, out currencyFromRate))
             {
                 
@@ -43,9 +40,6 @@ namespace CurrencyConverter
 
             Console.WriteLine("Choose currency to convert to: USD, JPY, EUR or BTC");
             currencyTo = Console.ReadLine();
-
-            // if currencyTo is in the list set currencyToRate = rate
-            //else give error
 
             if (currency.TryGetValue(currencyTo, out currencyToRate))
             {
