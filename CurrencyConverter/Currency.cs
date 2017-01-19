@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyConverter
 {
-    class Program
+    class Currency
     {
-        static void Main(string[] args)
-        {
-
-        
-
-
-
-
-        }
     }
 }
