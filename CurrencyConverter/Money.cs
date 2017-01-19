@@ -15,9 +15,20 @@ namespace CurrencyConverter
         //double JPY = 113.622;
         //double EUR = 0.937635;
         //double USD = 1;
-        int rate;
+        double rate;
         string symbol;
 
+        public Money()
+        {
+
+        }
+
+        public Money(double _rate, string _symbol)
+        {
+            rate = _rate;
+            symbol = _symbol;
+
+        }
 
 
 
