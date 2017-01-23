@@ -8,26 +8,30 @@ using System.IO;
 namespace CurrencyConverter
 {
      class Money
-    {
-        //StreamReader sr = new StreamReader(@"..\..\Currency.txt");
-        //set first value = symbol and second value = rate
-        //double BTC = 0.00115368;
-        //double JPY = 113.622;
-        //double EUR = 0.937635;
-        //double USD = 1;
+    {       
         double rate;
         string symbol;
+        double amount = 0.0;
+        double currencyFromRate = 0.0;
+        double currencyToRate = 0.0;
 
         public Money()
         {
 
         }
 
-        public Money(double _rate, string _symbol)
+        public Money(string _symbol, double _rate)
         {
             rate = _rate;
             symbol = _symbol;
 
+        }
+        public double Convert(float _amount, float _currencyFromRate, float _currencyToRate)
+        {
+            amount = _amount;
+            currencyFromRate = _currencyFromRate;
+            currencyToRate = _currencyToRate;
+            return (amount / currencyFromRate * currencyToRate);
         }
 
 
