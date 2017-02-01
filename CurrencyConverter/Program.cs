@@ -9,28 +9,34 @@ namespace CurrencyConverter
     class Program
     {
 
+        static string Read(string input)
+        {
+            Console.WriteLine(input);
+            return Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
-            Money USD = new Money("USD", 1);
-            Money BTC = new Money("BTC", 0.00115368);
-            Money JPY = new Money("JPY", 113.622);
-            Money EUR = new Money("EUR", 0.937635);
-            double amount = 0.0;
-            double newAmount = 0.0;
-            double currencyToRate = 0.0;
-            string currencyFrom = "nada";
-            string currencyTo = "nada";
+            bool runagain = true;
 
-            Console.WriteLine("Enter Amount That You Would Like Converted");
-            amount = float.Parse(Console.ReadLine());
-            Console.WriteLine("Choose currency you are converting from: USD, JPY, EUR or BTC");
-            currencyFrom = Console.ReadLine().ToUpper();
-            Console.WriteLine("Choose currency to convert to: USD, JPY, EUR or BTC");
-            currencyTo = Console.ReadLine().ToUpper();
-            currencyToRate = Convert(amount, currencyFrom, currencyTo);
+            while (runagain == true)
+            {
+                MoneyConverstion();
+            }
+            
+        }
+
+        private static void MoneyConverstion()
+        {
+            double amount = double.Parse(Read("Enter Amount That You Would Like Converted"));
+            string currencyFrom = Read("Choose currency you are converting from: USD, JPY, EUR or BTC").ToUpper();
+            double A = Money.GetRate(currencyFrom);
+            string currencyTo = Read("Choose currency you are converting to: USD, JPY, EUR or BTC").ToUpper();
+            double B = Money.GetRate(currencyTo);
+            double newAmount = Money.Convert(amount, A, B);
             Console.WriteLine($"{amount} {currencyFrom} = {newAmount} {currencyTo}");
-
-            Console.ReadKey();
+            
+            
         }
     }
 }
