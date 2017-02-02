@@ -10,10 +10,7 @@ namespace CurrencyConverter
      class Money
     {       
         double rate;
-        string symbol;
-        double amount = 0.0;
-        double currencyFromRate = 0.0;
-        double currencyToRate = 0.0;
+        string symbol;        
 
         public Money()
         {
@@ -36,18 +33,20 @@ namespace CurrencyConverter
             switch (_symbol)
             {
                 case "BTC":
-                    return 0.00115368;
+                    return 0.00101;
                     break;
                   
                 case "JPY":
-                    return 113.622;
+                    return 112.400;
                     break;
                     
                 case "EUR":
-                    return .937635;
+                    return .92523;
+                    break;
                     
                 case "USD":
                     return 1;
+                    break;
                 default:
                     return 0;
                     break;

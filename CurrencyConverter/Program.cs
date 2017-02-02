@@ -21,12 +21,12 @@ namespace CurrencyConverter
 
             while (runagain == true)
             {
-                MoneyConverstion();
+                MoneyConversion();
             }
             
         }
 
-        private static void MoneyConverstion()
+        private static void MoneyConversion()
         {
             double amount = double.Parse(Read("Enter Amount That You Would Like Converted"));
             string currencyFrom = Read("Choose currency you are converting from: USD, JPY, EUR or BTC").ToUpper();
@@ -34,9 +34,7 @@ namespace CurrencyConverter
             string currencyTo = Read("Choose currency you are converting to: USD, JPY, EUR or BTC").ToUpper();
             double B = Money.GetRate(currencyTo);
             double newAmount = Money.Convert(amount, A, B);
-            Console.WriteLine($"{amount} {currencyFrom} = {newAmount} {currencyTo}");
-            
-            
+            Console.WriteLine($"{amount} {currencyFrom} = {newAmount} {currencyTo}");           
         }
     }
 }
